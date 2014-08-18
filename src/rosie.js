@@ -128,7 +128,7 @@ Factory.prototype = {
     builder = builder || function(i) { return i; };
     return this.attr(attr, function() {
       factory.sequences[attr] = factory.sequences[attr] || 0;
-      return builder(++factory.sequences[attr]);
+      return builder.call(factory, ++factory.sequences[attr]);
     });
   },
 
